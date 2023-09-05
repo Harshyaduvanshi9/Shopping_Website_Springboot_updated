@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <title>Signup Page</title>
+</head>
+<body>
+    <form name="Signup" action="/createuser" method="post">
+  <div class="card">
+    <div class="form">
+      <h3>Sign up</h3>
+      <div class="input-field">
+        <i class="fa fa-user"></i>
+        <input type="text"  id="username" name="username" placeholder="Create your Username" required>
+      </div>
+      <div class="input-field">
+        <i class="fa fa-envelope"></i>
+        <input type="email" id="email" name="email" required placeholder="Enter your Email">
+      </div>
+      
+      <div class="input-field">
+        <i class="fa fa-lock"></i>
+        <input type="password"   id="password" name="password" required placeholder="Create your password ">
+      </div>
+      <div class="input-field">
+        <i class="fa fa-user"></i>
+        <input type="text"   id="roles" name="roles" required placeholder="Enter your role">
+      </div>
+      <div class="input-field">
+        <i class="fa fa-address-card"></i>
+        <input type="text" id="shipping_address" name="shipping_address" placeholder="Enter your shipping Address">
+      </div>
+      <div class="input-field">
+        <i class="fa fa-address-card"></i>
+        <input type="text" id="billing_address" name="billing_address" placeholder="Enter your billing Address">
+        
+            
+        </form>
+      </div>
+    
+       <button>Signup</a></button>
+      <!-- <p> Already have account? <a href="login.html">Login now</a></p> -->
+      <form name="index" action="/alreadylogin" method="get">
+      
+        <p>Already Have an Account</p><button class="alreadylogin" >Login</button>
+    
+    </form>
+    </div>
+    
+    
+    
+    <div class="image">
+      <div class="overlay">
+        <h3>Welcome to the<br>Shopping Website</h3>
+        <p>Let's do some shopping</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

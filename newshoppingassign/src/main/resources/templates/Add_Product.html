@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+
+<link rel="stylesheet" href="styles1.css"
+>
+<title>Product Store</title>
+<style>
+.form-label{
+    font-weight: bold;
+}
+
+</style>
+</head>
+<body>
+
+
+    <div class="container my-5 p-5" style="border:1px solid black;">
+        <h4 class="text-center">New Product Register</h4>
+        <form class="col-md-4 offset-md-4" action="/add_product" method="POST">
+
+            <div class="mb-3" style="margin: 50px 0px;">
+                <label for="product_name" class="form-label">Product Name:</label>
+            <input type="text" id="product_name" name="product_name" class="form-control" required><br>
+            </div>
+            
+            <div class="mb-3">
+                <label for="price" class="form-label">Price:</label>
+            <input type="number" id="price" name="price" step="0.01" class="form-control" required><br>
+
+            </div>
+            
+            <div class="mb-3" >
+                <label for="description" class="form-label">Description:</label><br>
+            <textarea id="description" name="description" rows="4" cols="50" class="form-control"></textarea><br>
+
+            </div>
+            
+    
+
+            <div class="mb-3" ></div>
+            <label for="stock_quantity" class="form-label">Stock quantity:</label><br>
+            <input id="stock_quantity" name="stock_quantity" rows="4" cols="50" class="form-control"></input><br>
+
+            <div class="mb-3" >
+                <label for="category_id" class="form-label">Category :</label><br>
+                <select id="category_id" name="category_id" class="form-control">Category
+                    <option value="clothing">Clothing</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="books">Books</option>
+                    <option value="furniture">Furniture</option>
+                    <!-- Add more options as needed -->
+                </select>
+
+            </div>
+
+            <div class="container-item"> 
+                <label for="imageUrl">Product Image URL</label><br>
+                <input type="text" id="imageUrl" name="imageUrl">
+                
+              </div>
+              <br>
+
+            <div>
+                <label class="form-label"></label>
+                <input type="submit" value="Add Product" >
+            </div>
+            </div>
+    
+    
+            
+            
+             
+        </form>
+    </div>
+
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+		integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+		integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+		crossorigin="anonymous"></script>
+
+</body>
+</html>

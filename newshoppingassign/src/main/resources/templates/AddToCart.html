@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="\css\project.css" rel="stylesheet" type="text/css">
+    <title></title>
+    <link rel="icon" type="image/x-icon" href="\images\android-chrome-512x512.png">
+  </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Webstore</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" th:href="@{newhomepage}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{gotoaboutUs}">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Cart</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/showProductshop"><button>All Products</button></a>
+              </li>
+              <li class="nav-item dropdown">
+                <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Admin
+                </a> -->
+                <a class="nav-link" th:href="@{admin}">Admin</a>
+    
+                <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/addproducts"><button>Add Product</button></a></li>
+                  <li><a class="dropdown-item" href="#">Update Product</a></li>
+                  <li><a class="dropdown-item" href="#">Delete Product</a></li>
+                </ul> -->
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link"  th:href="@{newsignup}">SignUp</a>
+                <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  SignUp
+                </a> -->
+                <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Update User</a></li>
+                  <li><a class="dropdown-item" href="#">Add Address</a></li>
+                  <li><a class="dropdown-item" href="#">Update Address</a></li>
+                  <li><a class="dropdown-item" href="#">Delete Account</a></li>
+                </ul> -->
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color: white;" th:href="@{alreadylogin}">Login</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+    <div class="container"> 
+      <div id="productDetails" class="container-inner">
+        
+        <div class="container-item " th:each="cartItem : ${cartItems}">
+          <div><img th:src="${cartItem.imageUrl}" alt="Product Image" width="200" height="200"></div>
+
+            <div id="details">
+
+          <h2 th:text="${cartItem.product_name}"></h2>
+
+           <strong><p th:text="'Price:  &#8377; '+${cartItem.price}"></p></strong>
+          <strong><p th:text=" 'description '+${cartItem.description}"></p></strong>
+          <strong><p th:text="'Stock quantity: '+${cartItem.stock_quantity}"></p></strong>
+          
+          <br>
+
+          <!-- <a class="btn btn-outline-dark" href="" id="buy" style="background-color: orange;">Buy</a> -->
+          <form th:action="@{/remove-from-cart}" method="get">
+            <input type="hidden" name="product_id" th:value="${cartItem.product_id}" />
+            <button type="submit">Delete</button>
+          </form>
+
+
+          
+
+
+        </div>
+
+
+      </div>
+        </div>
+
+        <div>
+
+          <h1><span th:text="${emptyCart}"></span></h1>
+          
+
+          
+  
+        
+          
+  
+          
+
+        </div>
+
+       
+        
+       
+       </div>
+       <footer >
+        <span style="display: inline-block; font-size: 2rem;">Total Amount: <span th:text="'  &#8377; '+${totalAmount}"></span></span>
+        <Strong><a th:href="@{buyall}"><button class="btn btn-outline-success" style="margin:10px 120px; font-size: 1.8rem;font-weight: bold;background-color: yellow; ">Buy All</button></a></Strong>
+      </footer>
+
+    </body>
+
+    <!-- private Integer product_id;
+    @NotBlank
+    private String product_name;
+    
+    @Positive
+    private int price;
+    
+    private String description;
+    
+    @Positive
+    private int stock_quantity;
+
+    @Positive
+
+    @NotBlank
+    private String imageUrl;
+
+    public ProductModel() {
+    }
+
+    @ManyToOne
+    @JoinColumn(name="category_id")
+    CategoriesModel categoriesModel; -->
+
+
+
+
+
+
+
+
+
+    <style>
+      body{
+    background-color: #f5f5f5;
+  }
+
+  #head h1 {
+    color: blue;
+    text-align: center;
+    /* padding-top: 70px; */
+  }
+
+ 
+
+  .container-inner{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 100px;
+  }
+
+  .container-item {
+    
+    border: 2px solid black;
+    display: inline-flex;
+
+    margin:21px;
+    margin-bottom: 0px;
+    width: 600px;
+    background-color: #e8f7b8;
+  }
+
+  
+.container-item:hover
+{
+	transform: scale(1.1);
+}
+  #details {
+    margin: 40px;
+    padding-left: 10px;
+  }
+
+  .container-item h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .container-item p {
+    margin: 5px 0;
+  }
+
+  .container-item img {
+    display: block;
+    margin: 10px;
+    max-width: 100%;
+    height:300px; /* Added to maintain aspect ratio */
+  }
+
+  hr {
+    /* border: none; */
+    border-top: 2px solid black;
+    margin: 20px 0;
+  }
+
+  #buy:hover{
+    transform: scale(1.3);
+  }
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.contact-no {
+  font-size: 16px;
+}
+
+h3{
+  margin-bottom: 150px;
+}
+</style>
+    </html>
+      
+  

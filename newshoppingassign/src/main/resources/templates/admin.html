@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<style>
+  .card-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .my-card {
+    margin: 1rem;
+    background-color: #fbfbfb;
+  }
+
+  .my-card img {
+    scale: 0.9;
+  }
+
+  ::-webkit-scrollbar{
+    display: none;
+  }
+</style>
+
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Webstore</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" th:href="@{newhomepage}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Cart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/showProductshop"><button>All Products</button></a>
+          </li>
+          <li class="nav-item dropdown">
+            <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Admin
+            </a> -->
+            <a class="nav-link" th:href="@{admin}">Admin</a>
+
+            <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/addproducts"><button>Add Product</button></a></li>
+              <li><a class="dropdown-item" href="#">Update Product</a></li>
+              <li><a class="dropdown-item" href="#">Delete Product</a></li>
+            </ul> -->
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link"  th:href="@{newsignup}">SignUp</a>
+            <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              SignUp
+            </a> -->
+            <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Update User</a></li>
+              <li><a class="dropdown-item" href="#">Add Address</a></li>
+              <li><a class="dropdown-item" href="#">Update Address</a></li>
+              <li><a class="dropdown-item" href="#">Delete Account</a></li>
+            </ul> -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: white;" th:href="@{alreadylogin}">Login</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <section class="Form ">
+    <div class="container">
+      <div class="row login-page">
+        <div class="col-lg-5 pt-3">
+          <img src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" class="image-fluid py-2" id="login-image" height="200px" width="200px">
+        </div>
+        <div class="col-lg-7">
+          <h1 class="font-weight-bold py-2">Admin Login</h1>
+        </div>
+        <br>
+        <br>
+        <form class="formm px-5 " id="formpage" action="/admin_login"  method="post">
+          <div class="form-row">
+            <div class="col-lg-7 ">
+              <label for="admin"><strong>Enter Admin Id</strong></label>
+              <input type="text" placeholder="admin_id" class="form-control required" name="admin" id="admin">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-lg-7 pt-3">
+              <label for="password"><strong>Enter password</strong></label>
+              <input type="password" placeholder="********" class="form-control required" name="password" id="password">
+            </div>
+          </div>
+          <br>
+          <div class="form-row" id="loginbut">
+            <div class="col-lg-7 ">
+              <button type="submit" id="btn1" class="btn btn-outline-dark">Admin Login</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </section>
+  <footer>
+    <p class="contact-no"></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+
+</body>
+<style>
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.contact-no {
+  font-size: 16px;
+}
+</style>
+
+</html>

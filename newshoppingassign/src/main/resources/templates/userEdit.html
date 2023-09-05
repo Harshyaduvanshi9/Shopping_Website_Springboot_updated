@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Update Product</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa; /* Change the background color here */
+    }
+    .container {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="text-center mb-4">
+      <h1 class="display-4">Update User</h1>
+      <p class="lead">Elevate Your User Details</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form id="addProductForm" action="/editkarouser" method="post">
+          <input type="hidden" name="user_id" th:value="${EditUser.user_id}">
+          <div class="form-group">
+            <label for="uname">User Name</label>
+            <input type="text" class="form-control" id="uname" required name="username" th:value="${EditUser.username}">
+          </div>
+          <div class="form-group">
+            <label for="emailitem">Email</label>
+            <input type="email" class="form-control" id="emailitem" required name="email" th:value="${EditUser.email}">
+          </div>
+          <div class="form-group">
+            <label for="newdes">Password</label>
+            <input type="text" class="form-control" id="newdes" required name="password" th:value="${EditUser.password}">
+          </div>
+          <!-- <div class="form-group">
+            <label for="stocks">Roles</label>
+            <input type="number" class="form-control" id="stocks" required name="roles" th:value="${EditUser.roles}">
+          </div> -->
+          <div class="form-group">
+            <label for="imageUrl">Shipping address</label>
+            <input type="text" class="form-control" id="imageUrl" name="shipping_address" th:value="${EditUser.shipping_address}">
+          </div>
+
+          <div class="form-group">
+            <label for="imas">Billing address</label>
+            <input type="text" class="form-control" id="imas" name="billing_address" th:value="${EditUser.billing_address}">
+          </div>
+          <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary">Update EditUser</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Include Bootstrap JS and any other scripts if needed -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+

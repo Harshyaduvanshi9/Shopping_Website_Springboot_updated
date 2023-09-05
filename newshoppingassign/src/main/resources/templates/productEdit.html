@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Update Product</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa; /* Change the background color here */
+    }
+    .container {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="text-center mb-4">
+      <h1 class="display-4">Update Product</h1>
+      <p class="lead">Elevate Your Product Details</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form id="addProductForm" action="/editproduct" method="post">
+          <input type="hidden" name="product_id" th:value="${product.product_id}">
+          <div class="form-group">
+            <label for="pname">Product Name</label>
+            <input type="text" class="form-control" id="pname" required name="product_name" th:value="${product.product_name}">
+          </div>
+          <div class="form-group">
+            <label for="priceitem">Price</label>
+            <input type="text" class="form-control" id="priceitem" required name="price" th:value="${product.price}">
+          </div>
+          <div class="form-group">
+            <label for="newdes">Description</label>
+            <input type="text" class="form-control" id="newdes" required name="description" th:value="${product.description}">
+          </div>
+          <div class="form-group">
+            <label for="stocks">Stock Quantity</label>
+            <input type="number" class="form-control" id="stocks" required name="stock_quantity" th:value="${product.stock_quantity}">
+          </div>
+          <div class="form-group">
+            <label for="imageUrl">Product Image URL</label>
+            <input type="text" class="form-control" id="imageUrl" name="imageUrl" th:value="${product.imageUrl}">
+          </div>
+          <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary">Update Product</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Include Bootstrap JS and any other scripts if needed -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
